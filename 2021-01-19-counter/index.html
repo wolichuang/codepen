@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f1f1f1;
+        height: 100vh;
+      }
+
+      .box {
+        position: relative;
+        width: 130px;
+        height: 130px;
+        line-height: 130px;
+        color: #fff;
+        background: #00a8e8;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px 5px rgba(255, 255, 255, 0);
+        transition: transform 0.5s ease-in-out;
+        cursor: pointer;
+      }
+      .count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size: 30px;
+        box-shadow: unset 0px 10px 5px 0px rgba(41, 41, 41, 0.2);
+      }
+      .btn {
+        display: inline-block;
+        border: solid #00a8e8;
+        border-width: 0 4px 4px 0;
+        width: 20px;
+        height: 20px;
+        padding: 3px;
+        cursor: pointer;
+        transition: margin 0.2s ease;
+      }
+      .dec-btn {
+        margin-right: 20px;
+        transform: rotate(135deg);
+      }
+      .inc-btn {
+        margin-left: 20px;
+        transform: rotate(-45deg);
+      }
+
+      .minus-btn {
+        border-color: #ef233c;
+      }
+      .minus-box {
+        background-color: #ef233c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dec-btn count-btn btn"></div>
+      <div class="box count-btn">
+        <div class="count">0</div>
+      </div>
+      <div class="inc-btn count-btn btn"></div>
+    </div>
+    <script>
+      let count = 0;
+      var btnDec = document.querySelector('.dec-btn');
+      var btnInc = document.querySelector('.inc-btn');
+      var btnCount = document.querySelectorAll('.count-btn');
+      var eleCount = document.querySelector('.count');
+      var box = document.querySelector('.box');
+      btnCount.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          let classBtn = e.target.classList;
+          if (classBtn.contains('dec-btn')) {
+            count--;
+          } else if (classBtn.contains('inc-btn')) {
+            count++;
+          } else {
+            count = 0;
+          }
+          if (count < 0) {
+            box.classList.add('minus-box');
+            btnCount.forEach((s) => s.classList.add('minus-btn'));
+          } else {
+            box.classList.remove('minus-box');
+            btnCount.forEach((s) => s.classList.remove('minus-btn'));
+          }
+          eleCount.textContent = count;
+        });
+      });
+    </script>
+  </body>
+</html>

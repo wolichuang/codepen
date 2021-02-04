@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@500;800&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: "Assistant";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #3b4969;
+}
+.container {
+  background-color: #fed5d5;
+  border-radius: 16px;
+  box-shadow: 0 0.4px 3.6px rgba(0, 0, 0, 0.004),
+    0 1px 8.5px rgba(0, 0, 0, 0.01), 0 1.9px 15.7px rgba(0, 0, 0, 0.019),
+    0 3.4px 28.2px rgba(0, 0, 0, 0.03), 0 6.3px 54.4px rgba(0, 0, 0, 0.047),
+    0 15px 137px rgba(0, 0, 0, 0.07);
+  height: 440px;
+  overflow: hidden;
+  position: relative;
+  width: 256px;
+}
+
+.title {
+  margin-top: 36px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  user-select: none;
+}
+.title1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.title2 {
+  color: #3b4969;
+  font-size: 16px;
+}
+.blob {
+  left: 28px;
+  position: absolute;
+  top: 96px;
+}
+
+.person {
+  position: absolute;
+  transform-origin: 50% 1000px;
+  top: 94px;
+  left: 30px;
+  bottom: 20px;
+}
+.person1 {
+  transform: rotate(0);
+}
+.person2 {
+  transform: rotate(20deg);
+}
+.person3 {
+  transform: rotate(40deg);
+}
+
+.person4 {
+  transform: rotate(60deg);
+}
+
+.text {
+  bottom: 8px;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 24px;
+  position: absolute;
+  text-align: center;
+  color: #333;
+}
+
+.navDots {
+  bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  left: 50%;
+  margin: auto;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 72px;
+}
+
+.navDot {
+  background: black;
+  border-radius: 3px;
+  height: 6px;
+  width: 6px;
+}

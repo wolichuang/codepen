@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>vue 轮播图组件</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+	<div id="app">
+		<carousel></carousel>
+	</div>
+	<script type="x/template" id="v-carousel">
+		<div class="card-carousel-wrapper">
+				<div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+				<div class="card-carousel">
+						<div class="card-carousel--overflow-container">
+								<div class="card-carousel-cards" :style="{transform:'translateX' + '(' + currentOffset + 'px' + ')'}"">
+										<div class="card-carousel--card" v-for="item in items">
+												<img src="https://source.unsplash.com/eudGUrDdBB0/200x200" alt="">
+												<div class="card-carousel--footer">
+													  <p>{{item.name}}</p>
+												</div>
+										</div>
+								</div>
+						</div>
+				</div>
+				<div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+		</div>
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+	<script src="./index.js"></script>
+</body>
+
+</html>

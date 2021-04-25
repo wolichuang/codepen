@@ -1,0 +1,64 @@
+:root {
+  --π: 3.1415926;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font: normal 100%/1.5 "Operator Mono", menlo, monaco, monospace;
+}
+
+.container {
+  padding: 1em;
+  transition: all 0.3s;
+}
+@media (min-width: 670px) {
+  .container {
+    width: 640px;
+    margin: 0 auto;
+    padding: 5em 0;
+  }
+}
+.progresscar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  --car-width-px: calc(var(--car-width) * 1px);
+  width: var(--car-width-px);
+  height: calc(var(--car-width-px) / 3.2);
+  background: url("https://assets.codepen.io/25387/progresscar.png") no-repeat
+    center center;
+  background-size: 100%;
+  mix-blend-mode: soft-light;
+  /* [1] */
+  --road-length: calc(100vw - var(--car-width-px));
+  transform: translateX(calc(var(--scroll-y-1) * var(--road-length)));
+}
+.wheel {
+  --size: calc(var(--car-width) / 14);
+  --size-px: calc(var(--size) * 1px);
+  position: absolute;
+  bottom: calc(var(--size-px) / 2);
+  display: inline-block;
+  width: var(--size-px);
+  height: var(--size-px);
+  background: url("https://assets.codepen.io/25387/progresscar-rim.png")
+    no-repeat center center;
+  background-size: 100%;
+  /* [2] */
+  --circumference: calc(var(--π) * var(--size));
+  --road-length: calc(var(--vw) - var(--car-width));
+  --rotations: calc(var(--road-length) / var(--circumference));
+  transform: rotate(calc(1turn * var(--rotations) * var(--scroll-y-1)));
+}
+
+/* [3] */
+.wheel:first-child {
+  left: calc(var(--car-width-px) / 5.4);
+}
+
+/* [3] */
+.wheel:last-child {
+  right: calc(var(--car-width-px) / 7);
+}

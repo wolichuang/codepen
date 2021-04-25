@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	;
+}
+
+:root {
+	--bg: lemonchiffon;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--bg);
+	overflow: hidden;
+}
+
+body:before,
+body:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 10vh;
+	z-index: 101;
+}
+
+ul {
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	overflow: scroll;
+	scroll-snap-type: y mandatory;
+	&:before {
+		
+	}
+}

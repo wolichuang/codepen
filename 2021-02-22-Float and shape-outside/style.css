@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  font-size: 1.1em;
+  line-height: 1.4em;
+  clear: both;
+  overflow: hidden;
+}
+
+.content {
+  width: 85%;
+  margin: 20px auto;
+}
+img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  float: left;
+  border-radius: 50%;
+  margin-inline-end: 1.5rem;
+  shape-outside: margin-box;
+}

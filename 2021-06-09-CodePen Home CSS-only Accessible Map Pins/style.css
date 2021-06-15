@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9bdefb;
+  height: 100vh;
+}
+
+* {
+  transition: all 120ms ease-out;
+}
+
+div {
+  margin-right: 12px;
+}
+
+div:last-of-type {
+  margin-right: 0px;
+}
+
+.pin-container {
+  position: relative;
+  width: 58px;
+  height: 58px;
+}
+
+.pin-container .pin {
+  position: absolute;
+  left: -24px;
+  top: 10px;
+  background: #fff;
+  width: 58px;
+  height: 58px;
+  border: 1px solid #fff;
+  border-radius: 100% 100% 0 100%;
+  transform: rotate(45deg);
+  transform-origin: right bottom;
+  box-shadow: 8px 8px 16px rgba(42, 44, 46, 0.08);
+}
+
+.pin-container .pin:hover, .pin-container .pin:focus {
+  background-color: white;
+  box-shadow: 8px 8px 48px rgba(0, 135, 194, 0.56);
+  cursor: pointer;
+  transform: rotate(45deg) scale(1.25);
+  z-index: 1;
+}
+
+.pin-container .pin .material-icons {
+  position: absolute;
+  top: 24%;
+  left: 24%;
+  transform: rotate(-45deg);
+}
+
+.pin-container .pin .sr-only {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.pin-container .pin__daycare {
+  background-color: #f083e3;
+}
+
+.pin-container .pin__daycare-selected, .pin-container .pin__daycare:hover, .pin-container .pin__daycare:focus {
+  border-color: #f083e3;
+  color: #f083e3;
+}
+
+.pin-container .pin__preschool {
+  background-color: #bc83ee;
+}
+
+.pin-container .pin__preschool-selected, .pin-container .pin__preschool:hover, .pin-container .pin__preschool:focus {
+  border-color: #bc83ee;
+  color: #bc83ee;
+}
+
+.pin-container .pin__featured {
+  background-color: #fcc059;
+}
+
+.pin-container .pin__featured-selected, .pin-container .pin__featured:hover, .pin-container .pin__featured:focus {
+  border-color: #fcc059;
+  color: #fcc059;
+}

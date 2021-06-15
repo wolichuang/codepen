@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title></title>
+	<link media="all" type="text/css" rel="stylesheet" href="./assets/css/common.css" />
+	<link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.2/theme-chalk/index.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./assets/js/panzer/panzer.css" media="all" />
+	<link media="all" type="text/css" rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body class="body_red">
+	<div class="wrap" id="app">
+		<div class="xq-screen">
+			<div class="banner__img">
+				<img src="./assets/images/red/bg01.jpg" alt="" />
+			</div>
+			<div class="banner__img">
+				<img src="./assets/images/red/bg02.jpg" alt="" />
+			</div>
+			<div class="banner__img">
+				<img src="./assets/images/red/bg03.jpg" alt="" />
+			</div>
+			<div class="buttons__list buttons__red">
+				<a href="#" class="btn__video">&nbsp;&nbsp;</a>
+				<a href="#" class="btn__audio">&nbsp;&nbsp;</a>
+			</div>
+			<div class="g-container">
+				<!-- 列1 -->
+				<div class="g-list">
+					<div class="g-item" v-for="(item,index) in gList1" :key="index">
+						<a href="javascript:void(0)" @click="showDetail(item.id)"><img :src="item.coverImage" alt="" /></a>
+					</div>
+				</div>
+				<!-- end -->
+				<!-- 列2 -->
+				<div class="g-list">
+					<div class="g-item" v-for="(item,index) in gList2" :key="index">
+						<a href="javascript:void(0)" @click="showDetail(item.id)"><img :src="item.coverImage" alt="" /></a>
+					</div>
+				</div>
+				<!-- end -->
+				<!-- 列3 -->
+				<div class="g-list">
+					<div class="g-item" v-for="(item,index) in gList3" :key="index">
+						<a href="javascript:void(0)" @click="showDetail(item.id)"><img :src="item.coverImage" alt="" /></a>
+					</div>
+				</div>
+				<!-- end -->
+			</div>
+		</div>
+		<el-dialog :title="null" width="1000px" ref="infoDialog" :visible.sync="dialogFormVisible" @closed="handleClose"
+			@opened="handleOpened">
+			<div class="dialog-model">
+				<h2>北京的旋律</h2>
+				<div class="audio-box">
+					<!-- left -->
+					<div class="box__l">
+						<img src="./assets/images/red/img01.jpg" alt="" />
+						<p>分类</p>
+						<p>风格</p>
+						<p>介绍</p>
+						<div class="intro">
+							<h3>专辑简介：</h3>
+							<p>
+								北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介北京的旋律专辑简介
+							</p>
+						</div>
+					</div>
+					<!-- end -->
+					<!-- right -->
+					<div class="box__r">
+						<div class="code">
+							<img src="./assets/images/red/code.jpg" alt="" />
+						</div>
+						<!-- 音频 -->
+						<div class="audio-list">
+							<div class="audioText">
+								<!-- 音播放开始 -->
+								<audio width="100%" height="450" controls="controls" id="audioPlayer" preload="metadata"
+									autoplay="autoplay" src="./static/resource/1.mp3">
+									Your browser does not support the audio tag.
+								</audio>
+								<!-- 音频播放结束 -->
+							</div>
+							<ol>
+								<li><a href="#" data-src="2.mp3"><b>A-1</b> <b>dead wrong intro</b> <b>03:24</b></a></li>
+								<li><a href="#" data-src="2.mp3"><b>A-1</b> <b>dead wrong intro</b> <b>03:24</b></a></li>
+								<li><a href="#" data-src="2.mp3"><b>A-1</b> <b>dead wrong intro</b> <b>03:24</b></a></li>
+								<li><a href="#" data-src="2.mp3"><b>A-1</b> <b>dead wrong intro</b> <b>03:24</b></a></li>
+								<li><a href="#" data-src="2.mp3"><b>A-1</b> <b>dead wrong intro</b> <b>03:24</b></a></li>
+							</ol>
+						</div>
+						<!-- end -->
+					</div>
+					<!-- end -->
+				</div>
+			</div>
+		</el-dialog>
+	</div>
+	<script src="./assets/js/common.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.2/index.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script type="text/javascript" src="./assets/js/panzer/panzer.js"></script>
+	<script>
+		var API_URL = "http://47.104.133.17:7862/cloud/";
+		var ORG_ID = "6f86c56a266a444d957a89ebcde0e6ef";
+		var SIGN = "123123";
+		var BaseHeaders = {
+			Accept: "*",
+			organizationId: ORG_ID,
+			sign: SIGN,
+		};
+		var BaseParams = {
+			pageNo: 1,
+			pageSize: 100,
+		};
+		const shuffle = ([...arr]) => {
+			let m = arr.length;
+			while (m) {
+				const i = Math.floor(Math.random() * m--);
+				[arr[m], arr[i]] = [arr[i], arr[m]];
+			}
+			return arr;
+		};
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				visualList: [],
+				gList1: [],
+				gList2: [],
+				gList3: [],
+				dialogFormVisible: false,
+			},
+			created() {
+				this.fetchData();
+			},
+			methods: {
+				// 初始化数据
+				fetchData() {
+					var requestUrl = API_URL + "video/list";
+					var _params = Object.assign(BaseParams, {
+						versionType: 1,
+					});
+					axios({
+							method: "get",
+							url: requestUrl,
+							params: _params,
+							headers: BaseHeaders,
+						})
+						.then((res) => {
+							const _list = res.data.data.list || [];
+							if (res.status === 200) {
+								this.visualList = _list;
+								this.gList1 = shuffle(_list);
+								this.gList2 = shuffle(_list);
+								this.gList3 = shuffle(_list);
+							} else {
+								this.$message({
+									message: res.msg,
+									type: "error",
+									showClose: true,
+									duration: 3000,
+								});
+							}
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				},
+
+				// 绑定事件
+				showDetail(_id) {
+					this.dialogFormVisible = true;
+					var requestUrl = API_URL + "video/detail";
+					var _params = Object.assign(BaseParams, {
+						versionType: 1,
+					});
+					axios({
+							method: "get",
+							url: requestUrl,
+							params: _params,
+							headers: BaseHeaders,
+						})
+						.then((res) => {
+							const _list = res.data.data.list || [];
+							if (res.status === 200) {
+								this.visualList = _list;
+								this.gList1 = shuffle(_list);
+								this.gList2 = shuffle(_list);
+								this.gList3 = shuffle(_list);
+							} else {
+								this.$message({
+									message: res.msg,
+									type: "error",
+									showClose: true,
+									duration: 3000,
+								});
+							}
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				},
+				handleClose() {
+					this.dialogFormVisible = false;
+				},
+
+				handleOpened() {
+					this.initAudio();
+				},
+				// 初始化音频
+				initAudio() {
+					var audioEl = $("#audioPlayer")
+					audioEl.panzer({
+						expanded: true,
+						showduration: true,
+						showvolume: true
+					});
+				},
+			},
+		});
+	</script>
+</body>
+
+</html>

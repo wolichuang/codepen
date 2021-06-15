@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		input {
+			border: 1px solid #eee;
+			padding: 5px;
+		}
+
+		.wrap {
+			width: 1200px;
+			margin: 40px auto;
+			padding: 20px;
+			border: 1px solid #eeeeee;
+		}
+
+		.skt-loading .skeleton {
+			position: relative;
+			overflow: hidden;
+			border: none;
+			border-radius: 5px;
+			pointer-events: none;
+		}
+
+		.skt-loading .skeleton:after {
+			display: block;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 9;
+			width: 100%;
+			height: 100%;
+			background: #ebf1f8;
+		}
+
+		.skt-loading .skeleton:nth-of-type(2n-1) {
+			width: 30%;
+		}
+
+		.skt-loading .skeleton:not(.not-before):before {
+			position: absolute;
+			top: 0;
+			width: 30%;
+			height: 100%;
+			content: "";
+			background: -webkit-gradient(linear, left top, right top, color-stop(0, hsla(0, 0%, 100%, 0)), color-stop(50%, hsla(0, 0%, 100%, .3)), to(hsla(0, 0%, 100%, 0)));
+			background: -o-linear-gradient(left, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .3) 50%, hsla(0, 0%, 100%, 0) 100%);
+			background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .3) 50%, hsla(0, 0%, 100%, 0));
+			-webkit-transform: skewX(-45deg);
+			-ms-transform: skewX(-45deg);
+			transform: skewX(-45deg);
+			z-index: 99;
+			-webkit-animation: skeleton-ani 1s ease infinite;
+			animation: skeleton-ani 1s ease infinite;
+			display: block
+		}
+
+		.skt-loading .skeleton.badge:after {
+			background-color: #f8fafc
+		}
+
+		@-webkit-keyframes skeleton-ani {
+			0% {
+				left: -100%
+			}
+
+			to {
+				left: 150%
+			}
+		}
+
+		@keyframes skeleton-ani {
+			0% {
+				left: -100%
+			}
+
+			to {
+				left: 150%
+			}
+		}
+
+		.vspace {
+			height: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="skt-loading wrap" id="main">
+		<h2 class="skeleton">文章标题</h2>
+		<div class="vspace"></div>
+		<div class="content">
+			<p class="skeleton">文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+			<div class="vspace"></div>
+			<p class="skeleton">文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+			<div class="vspace"></div>
+			<p class="skeleton">文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+			<div class="vspace"></div>
+			<p class="skeleton">文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+			<div class="vspace"></div>
+			<p class="skeleton">文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+			<div class="vspace"></div>
+			<p class="skeleton">文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+		</div>
+		<script>
+			setTimeout(() => {
+				var $main = document.getElementById('main');
+				$main.className = $main.className.replace('skt-loading', '')
+			}, 2000);
+		</script>
+	</div>
+</body>
+
+</html>

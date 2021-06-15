@@ -1,0 +1,233 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.body_red {
+  background: url("../images/red/bg_body.jpg") #700009 left top;
+}
+
+.body_blue {
+  background: url("../images/blue/bg_body.jpg") #1b7e90 left top;
+}
+
+.xq-screen {
+  width: 100%;
+  height: 8700px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.xq-screen .banner__img {
+  position: relative;
+  width: 1638px;
+}
+
+.xq-screen .banner__img img {
+  font-size: 0;
+  width: 100%;
+}
+
+.xq-screen .banner__img:nth-of-type(1) img {
+  height: 2991px;
+}
+
+.xq-screen .banner__img:nth-of-type(2) img {
+  height: 3927px;
+}
+
+.xq-screen .banner__img:nth-of-type(3) img {
+  height: 1754px;
+}
+
+.xq-screen .buttons__list {
+  position: fixed;
+  left: 0;
+  top: 30%;
+  z-index: 99;
+  width: 125px;
+  height: 250px;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.xq-screen .buttons__list a {
+  flex: 1;
+}
+
+.xq-screen .buttons__list.buttons__red {
+  background: url(../images/red/icon-buttonsx2.png) no-repeat left top;
+}
+
+.xq-screen .buttons__list.buttons__blue {
+  background: url(../images/blue/icon-buttonsx2.png) no-repeat left top;
+}
+
+.g-container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  right: 5%;
+  overflow: hidden;
+}
+
+.g-container .g-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 10px auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  animation: marquee 20s linear infinite;
+}
+
+.g-container .g-list:nth-of-type(2) {
+  animation-delay: 0.5s;
+}
+
+.g-container .g-list:nth-of-type(3) {
+  animation-delay: 1s;
+}
+
+.g-container .g-list .g-item {
+  flex: 1 auto 1;
+  margin: 50px;
+}
+
+.g-container .g-list img {
+  display: block;
+  height: 420px;
+  max-width: 100%;
+  box-shadow: 0px 5px 6px 6px #303133;
+}
+
+@keyframes marquee {}.dialog-model {
+  font-size: 0.32rem;
+}
+
+.dialog-model h2 {
+  display: block;
+  color: #000;
+  font-size: 0.6rem;
+  font-weight: bold;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.dialog-model .audio-box {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.dialog-model .audio-box audio {
+  width: 100%;
+}
+
+.dialog-model .audio-box > div {
+  flex: 1;
+}
+
+.dialog-model .audio-box .box__l {
+  font-size: 0.32rem;
+  border-right: 1px solid #000;
+  padding-right: 20px;
+}
+
+.dialog-model .audio-box .box__l p {
+  display: block;
+  color: #000;
+  margin: 20px 0;
+}
+
+.dialog-model .audio-box .box__l .intro h3 {
+  font-weight: bold;
+  color: #000;
+}
+
+.dialog-model .audio-box .box__l .intro p {
+  margin: 10px 0;
+  line-height: 37px;
+}
+
+.dialog-model .audio-box .box__l img {
+  width: 280px;
+  height: 280px;
+}
+
+.dialog-model .audio-box .box__r {
+  margin: 0 20px;
+  position: relative;
+}
+
+.dialog-model .audio-box .box__r .code {
+  text-align: center;
+}
+
+.dialog-model .audio-box .box__r .code img {
+  display: inline-block;
+  width: 238px;
+  height: 237px;
+}
+
+.dialog-model .audio-box .box__r .audio-list {
+  margin: 20px auto;
+}
+
+.dialog-model .audio-box .box__r .audio-list ol {
+  list-style: none;
+  margin: 20px auto;
+}
+
+.dialog-model .audio-box .box__r .audio-list ol li {
+  height: 44px;
+  line-height: 44px;
+  color: #999;
+}
+
+.dialog-model .audio-box .box__r .audio-list ol li a {
+  display: flex;
+  color: #999;
+  justify-content: space-between;
+}
+
+.dialog-model .audio-box .box__r .audio-list ol li b {
+  font-weight: normal;
+}
+
+.dialog-model .audio-box .box__r .audio-list ol li:hover a,
+.dialog-model .audio-box .box__r .audio-list ol li.active a {
+  color: #700009;
+}
+
+.dialog-model .audio-box .box__r p {
+  color: #999;
+}
+
+.dialog-video .video-box {
+  width: 980px;
+  height: 425px;
+  margin: 20px auto;
+}
+
+.dialog-video .video-box img {
+  width: 100%;
+  height: 425px;
+}
+
+.dialog-video .audio-box {
+  margin: 20px auto;
+}
+
+.dialog-video .audio-box > div {
+  flex: 1 auto;
+}

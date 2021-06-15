@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #4d5974;
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  font-size: 1.15em;
+  border: none;
+  outline: none;
+  color: #7288a2;
+  background: none;
+  cursor: pointer;
+}
+
+button::after {
+  cursor: pointer;
+  color: #03b5d2;
+  border: 1px solid #03b5d2;
+}
+
+button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+
+button .icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #03b5d2;
+  border-radius: 22px;
+  position: absolute;
+  top: 18px;
+  right: 0;
+}
+
+button .icon::before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  top: 9px;
+  left: 5px;
+}
+
+button .icon::after {
+  display: block;
+  content: "";
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+  position: absolute;
+  top: 5px;
+  left: 9px;
+}
+
+.accordion .accordion-item {
+  padding: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+  color: #03b5d2;
+  border-bottom: 1px solid #03b5d2;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] .icon::after {
+  width: 0;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] + .accordion-content {
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.accordion .accordion-item .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.accordion .accordion-item .accordion-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 2rem 0;
+}

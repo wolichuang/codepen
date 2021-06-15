@@ -1,0 +1,109 @@
+
+/* panzer - general */
+.panzerlist { width: 300px; display: inline-block; -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+div.panzerlist-expand { width: 100%; }
+.panzerlist .player { position: relative; padding: 3px; height: 28px; text-align: left; }
+.panzerlist-unsupported .player { height: auto; }
+.panzerlist .controls { float: left; width: 74px; height: 28px; overflow: hidden; }
+.hide-prev-next .player .controls { width: 28px; }
+.panzerlist .controls span, .panzerlist .controls a { float: left; width: 28px; height: 28px; background-position: 0 0; }
+.panzerlist .controls span:hover, .panzerlist .controls span.hover, .panzerlist .controls a:hover { background-position: -28px 0; }
+.panzerlist .controls span:active, .panzerlist .controls span.active, .panzerlist .controls a:active { background-position: -56px 0; }
+.panzerlist .controls em { display: block; }
+.panzerlist .controls .play em { width: 9px; height: 12px; margin-top: 9px; margin-left: 11px; background-position: -85px -1px; }
+.panzerlist .controls .pause em { width: 9px; height: 11px; margin-top: 9px; margin-left: 10px; background-position: -94px -1px; }
+.panzerlist .controls .prev-next { float: left; margin-top: 3px; margin-left: 2px; width: 43px; height: 23px; }
+.panzerlist .controls .prev-next span { float: left; width: 21px; height: 22px; }
+.panzerlist .controls .prev-next span.prev { background-position: 0 -102px; }
+.panzerlist .controls .prev-next span.prev:hover { background-position: -43px -102px; }
+.panzerlist .controls .prev-next span.prev:active { background-position: -86px -102px; }
+.panzerlist .controls .prev-next span.next { width: 22px; background-position: -21px -102px; }
+.panzerlist .controls .prev-next span.next:hover { background-position: -64px -102px; }
+.panzerlist .controls .prev-next span.next:active { background-position: -107px -102px; }
+.panzerlist strong.alert { font: 12px/18px 'Helvetica',Arial; font-weight: normal; display: block; padding: 0 4px; text-align: left; }
+.panzerlist .progress-wrapper { position: absolute; height: 11px; left: 77px; top: 12px; right: 104px; }
+.hide-prev-next .progress-wrapper { left: 33px; }
+.panzerlist .volume-wrapper { position: absolute; width: 70px; height: 11px; top: 12px; right: 3px; }
+.panzerlist span.duration { position: absolute; top: 0; right: 74px; font: 10px/35px 'Helvetica',Arial; cursor: default; }
+.panzerlist span.small { font-size: 9px; }
+.panzerlist .progress, .panzerlist .volume { position: relative; margin: 0 5px; height: 11px; background-position: 0 -79px; z-index: 1; }
+.panzerlist .volume { float: right; width: 40px; }
+.panzerlist .volume-wrapper span { float: left; position: relative; top: -3px; left: 1px; width: 17px; height: 15px; background-position: -136px 0px; }
+.panzerlist .progress:before, .panzerlist .progress:after, .panzerlist .volume:before, .panzerlist .volume:after { position: absolute; top: 0; content: ''; width: 5px; height: 11px; z-index: 1; }
+.panzerlist .progress:before, .panzerlist .volume:before { left: -5px; background-position: -113px -1px; }
+.panzerlist .progress:after, .panzerlist .volume:after { right: -4px; background-position: -119px -1px; }
+.panzerlist .progress .elapsed, .panzerlist .volume .set { position: relative; height: 10px; background-position: 0 -90px; z-index: 2; }
+.panzerlist .progress .elapsed:before, .panzerlist .progress .elapsed:after, .panzerlist .volume .set:before, .panzerlist .volume .set:after { position: absolute; top: 0; content: ''; width: 6px; height: 10px; }
+.panzerlist .progress .elapsed:before, .panzerlist .volume .set:before { left: -5px; background-position: -124px -1px; }
+.panzerlist .progress .elapsed:after, .panzerlist .volume .set:after { right: -5px; background-position: -130px -1px; }
+.panzerlist .cover img { display: block; margin: 0 auto; border: 0; max-width: 100%; height: auto; }
+.panzerlist .title { padding: 4px; text-align: center; font: 12px/20px 'Helvetica',Arial; cursor: default; }
+.panzerlist .list { text-align: left; cursor: default; }
+.hide-list .list { display: none; }
+.panzerlist .list a { padding: 4px 7px; display: block; font: 12px/18px 'Helvetica',Arial; font-weight: normal; text-decoration: none; outline: 0; border: 0; }
+
+/* panzer - player big */
+.panzerlist-big .player { padding: 5px; height: 74px; }
+.panzerlist-unsupported .player { height: auto; }
+.panzerlist-big .controls { width: 127px; height: 49px; margin-top: 25px; overflow: hidden; }
+.panzerlist-big.hide-prev-next .player .controls { width: 49px; }
+.panzerlist-big .controls span, .panzerlist-big .controls a { width: 49px; height: 49px; background-position: 0 -29px; margin: 0; padding: 0; border: 0; }
+.panzerlist-big .controls span:hover, .panzerlist-big .controls span.hover, .panzerlist-big .controls a:hover { background-position: -49px -29px; }
+.panzerlist-big .controls span:active, .panzerlist-big .controls span.active, .panzerlist-big .controls a:active { background-position: -98px -29px; }
+.panzerlist-big .controls .play em { width: 15px; height: 18px; margin-top: 15px; margin-left: 19px; background-position: -148px -33px; }
+.panzerlist-big .controls .pause em { width: 15px; height: 19px; margin-top: 15px; margin-left: 17px; background-position: -148px -53px; }
+.panzerlist-big .controls .prev-next { margin-top: 7px; margin-left: 5px; width: 73px; height: 35px; }
+.panzerlist-big .controls .prev-next span { float: left; width: 35px; height: 34px; }
+.panzerlist-big .controls .prev-next span.prev { margin-left: 1px; background-position: -1px -126px; }
+.panzerlist-big .controls .prev-next span.prev:hover { background-position: -73px -126px; }
+.panzerlist-big .controls .prev-next span.prev:active { background-position: -145px -126px; }
+.panzerlist-big .controls .prev-next span.next { width: 36px; background-position: -36px -126px; }
+.panzerlist-big .controls .prev-next span.next:hover { background-position: -108px -126px; }
+.panzerlist-big .controls .prev-next span.next:active { background-position: -180px -126px; }
+.panzerlist-big strong.alert { font-size: 13px; }
+.panzerlist-big .progress-wrapper { left: 6px; top: 12px; right: 6px; }
+.panzerlist-big span.duration { top: 25px; right: 110px; font-size: 12px; line-height: 57px; }
+.panzerlist-big span.small { font-size: 11px; line-height: 58px; }
+.panzerlist-big .volume-wrapper { top: 48px; right: 6px; width: 102px; }
+.panzerlist-big .volume-wrapper .volume { width: 70px; }
+.panzerlist-big .title { padding: 6px; font-size: 14px; }
+.panzerlist-big .list { font-size: 13px; line-height: 20px; }
+.panzerlist-big .list a { padding: 5px 9px; }
+
+/* panzer - dark theme */
+.panzerlist-dark .controls span, .panzerlist-dark .controls a, .panzerlist-dark .controls em, .panzerlist-dark .progress, .panzerlist-dark .progress:before, .panzerlist-dark .progress:after, .panzerlist-dark .elapsed, .panzerlist-dark .elapsed:before, .panzerlist-dark .elapsed:after, .panzerlist-dark .volume, .panzerlist-dark .volume-wrapper span, .panzerlist-dark .volume:before, .panzerlist-dark .volume:after, .panzerlist-dark .volume .set, .panzerlist-dark .volume .set:before, .panzerlist-dark .volume .set:after { background-image: url(panzer-sprite-dark.png); }
+.panzerlist-dark .player, .panzerlist-dark .title { border: 1px solid #111; background: #333; background: -moz-linear-gradient(top, #4a4a4a 0%, #292929 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4a4a4a), color-stop(100%,#292929)); background: -webkit-linear-gradient(top, #4a4a4a 0%,#292929 100%); background: -o-linear-gradient(top, #4a4a4a 0%,#292929 100%); background: -ms-linear-gradient(top, #4a4a4a 0%,#292929 100%); background: linear-gradient(to bottom, #4a4a4a 0%,#292929 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4a4a', endColorstr='#292929',GradientType=0 ); -webkit-box-shadow: inset 0px 0px 3px rgba(85,85,85,.75); box-shadow: inset 0px 0px 3px rgba(85,85,85,.75); }
+.panzerlist-dark .title { border-bottom: 0; color: #ccc; text-shadow: 1px 1px rgba(0,0,0,0.5); }
+.panzerlist-dark span.duration, .panzerlist-dark .list a { color: #bbb; }
+.panzerlist-dark .list a:hover { color: #fff; background-color: #2a2a2a; }
+.panzerlist-dark .list a.active { color: #62cde7; background-color: #262626; }
+.panzerlist-dark strong.alert { color: #ccc; }
+.panzerlist-dark .cover, .panzerlist-dark .list { border: 1px solid #111; background: #333; border-bottom: 0; }
+
+/* panzer - light theme */
+.panzerlist-light .controls span, .panzerlist-light .controls a, .panzerlist-light .controls em, .panzerlist-light .progress, .panzerlist-light .progress:before, .panzerlist-light .progress:after, .panzerlist-light .elapsed, .panzerlist-light .elapsed:before, .panzerlist-light .elapsed:after, .panzerlist-light .volume, .panzerlist-light .volume-wrapper span, .panzerlist-light .volume:before, .panzerlist-light .volume:after, .panzerlist-light .volume .set, .panzerlist-light .volume .set:before, .panzerlist-light .volume .set:after { background-image: url(panzer-sprite-light.png); }
+.panzerlist-light .player, .panzerlist-light .title { border: 1px solid #c3c3c3; background: #eee; background: -moz-linear-gradient(top, #fcfcfc 0%, #d9d9d9 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#d9d9d9)); background: -webkit-linear-gradient(top, #fcfcfc 0%,#d9d9d9 100%); background: -o-linear-gradient(top, #fcfcfc 0%,#d9d9d9 100%); background: -ms-linear-gradient(top, #fcfcfc 0%,#d9d9d9 100%); background: linear-gradient(to bottom, #fcfcfc 0%,#d9d9d9 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#d9d9d9',GradientType=0 ); }
+.panzerlist-light .title { border-bottom: 0; color: #666; text-shadow: 1px 1px rgba(255,255,255,0.5); }
+.panzerlist-light span.duration, .panzerlist-light .list a { color: #666; }
+.panzerlist-light .list a:hover { color: #333; background-color: #e2e2e2; }
+.panzerlist-light .list a.active { color: #888; background-color: #ddd; }
+.panzerlist-light strong.alert { color: #666; }
+.panzerlist-light .cover, .panzerlist-light .list { border: 1px solid #c3c3c3; background: #eee; border-bottom: 0; }
+
+@media (max-width: 480px) {
+	.panzerlist { width: auto; display: block; }
+	.panzerlist-big .volume-wrapper { display: none; }
+	.panzerlist-big span.duration { right: 6px }
+}
+
+@media (max-width: 320px) {
+	.panzerlist .volume-wrapper { display: none; }
+	.panzerlist .progress-wrapper { right: 34px; }
+	.panzerlist-big .progress-wrapper { right: 6px; }
+	.panzerlist span.duration { right: 4px }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) {
+	.panzerlist-dark .controls span, .panzerlist-dark .controls a, .panzerlist-dark .controls em, .panzerlist-dark .progress, .panzerlist-dark .progress:before, .panzerlist-dark .progress:after, .panzerlist-dark .elapsed, .panzerlist-dark .elapsed:before, .panzerlist-dark .elapsed:after, .panzerlist-dark .volume, .panzerlist-dark .volume-wrapper span, .panzerlist-dark .volume:before, .panzerlist-dark .volume:after, .panzerlist-dark .volume .set, .panzerlist-dark .volume .set:before, .panzerlist-dark .volume .set:after { background-image: url(panzer-sprite-dark@2x.png); background-size: 217px 161px; }
+	.panzerlist-light .controls span, .panzerlist-light .controls a, .panzerlist-light .controls em, .panzerlist-light .progress, .panzerlist-light .progress:before, .panzerlist-light .progress:after, .panzerlist-light .elapsed, .panzerlist-light .elapsed:before, .panzerlist-light .elapsed:after, .panzerlist-light .volume, .panzerlist-light .volume-wrapper span, .panzerlist-light .volume:before, .panzerlist-light .volume:after, .panzerlist-light .volume .set, .panzerlist-light .volume .set:before, .panzerlist-light .volume .set:after { background-image: url(panzer-sprite-light@2x.png); background-size: 217px 161px; }
+}

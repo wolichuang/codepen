@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title></title>
+	<link media="all" type="text/css" rel="stylesheet" href="./assets/css/common.css" />
+	<link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.2/theme-chalk/index.css" rel="stylesheet" />
+	<link media="all" type="text/css" rel="stylesheet" href="./assets/css/style.css" />
+	<link rel="stylesheet" href="./assets/js/videojs/video-js.min.css">
+</head>
+
+<body class="body_blue">
+	<div class="wrap" id="app">
+		<div class="xq-screen">
+			<div class="banner__img">
+				<img src="./assets/images/blue/bg01.jpg" alt="" />
+			</div>
+			<div class="banner__img">
+				<img src="./assets/images/blue/bg02.jpg" alt="" />
+			</div>
+			<div class="banner__img">
+				<img src="./assets/images/blue/bg03.jpg" alt="" />
+			</div>
+			<div class="buttons__list buttons__blue">
+				<a href="#" class="btn__video">&nbsp;&nbsp;</a>
+				<a href="#" class="btn__audio">&nbsp;&nbsp;</a>
+			</div>
+			<div class="g-container">
+				<!-- 列1 -->
+				<div class="g-list">
+					<div class="g-item" v-for="(item,index) in gList1" :key="index">
+						<a href="javascript:void(0)" @click="showDetail(item.id)"><img :src="item.coverImage" alt="" /></a>
+					</div>
+				</div>
+				<!-- end -->
+				<!-- 列2 -->
+				<div class="g-list">
+					<div class="g-item" v-for="(item,index) in gList2" :key="index">
+						<a href="javascript:void(0)" @click="showDetail(item.id)"><img :src="item.coverImage" alt="" /></a>
+					</div>
+				</div>
+				<!-- end -->
+				<!-- 列3 -->
+				<div class="g-list">
+					<div class="g-item" v-for="(item,index) in gList3" :key="index">
+						<a href="javascript:void(0)" @click="showDetail(item.id)"><img :src="item.coverImage" alt="" /></a>
+					</div>
+				</div>
+				<!-- end -->
+			</div>
+		</div>
+		<el-dialog :title=null width="1000px" :visible.sync="dialogFormVisible" @closed="handleClose">
+			<div class="dialog-model dialog-video">
+				<h2>北京的旋律</h2>
+				<div class="video-box">
+					<!-- 视频播放开始 -->
+					<video width="960px" height="425px" id="videoPlayer" class="video-js vjs-big-play-centered" controls
+						preload="auto" data-setup="{}">
+						<source id="videoMP4" src="./static/resource/1.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<!-- 视频播放结束 -->
+				</div>
+				<div class="audio-box">
+					<!-- left -->
+					<div class="box__l">
+						<img src="./assets/images/blue/img01.jpg" alt="">
+						<p>分类</p>
+						<p>风格</p>
+						<p>介绍</p>
+					</div>
+					<!-- end -->
+					<!-- right -->
+					<div class="box__r">
+						<h3>视频简介</h3>
+						<p>
+							榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍榆林小曲介绍
+						</p>
+					</div>
+					<!-- end -->
+				</div>
+			</div>
+		</el-dialog>
+	</div>
+	<script src="./assets/js/common.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.2/index.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script src="./assets/js/videojs/video.min.js"></script>
+	<script>
+		var API_URL = "http://47.104.133.17:7862/cloud/";
+		var ORG_ID = "6f86c56a266a444d957a89ebcde0e6ef";
+		var SIGN = "123123";
+		var BaseHeaders = {
+			Accept: "*",
+			organizationId: ORG_ID,
+			sign: SIGN,
+		};
+		var BaseParams = {
+			pageNo: 1,
+			pageSize: 100,
+		};
+		const shuffle = ([...arr]) => {
+			let m = arr.length;
+			while (m) {
+				const i = Math.floor(Math.random() * m--);
+				[arr[m], arr[i]] = [arr[i], arr[m]];
+			}
+			return arr;
+		};
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				visualList: [],
+				gList1: [],
+				gList2: [],
+				gList3: [],
+				dialogFormVisible: true,
+			},
+			created() {
+				this.fetchData();
+			},
+			methods: {
+				// 初始化数据
+				fetchData() {
+					var requestUrl = API_URL + "video/list";
+					var _params = Object.assign(BaseParams, {
+						versionType: 1
+					});
+					axios({
+							method: "get",
+							url: requestUrl,
+							params: _params,
+							headers: BaseHeaders,
+						})
+						.then((res) => {
+							const _list = res.data.data.list || [];
+							if (res.status === 200) {
+								this.visualList = _list;
+								this.gList1 = shuffle(_list);
+								this.gList2 = shuffle(_list);
+								this.gList3 = shuffle(_list);
+							} else {
+								this.$message({
+									message: res.msg,
+									type: "error",
+									showClose: true,
+									duration: 3000,
+								});
+							}
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				},
+
+				// 绑定事件
+				showDetail(_id) {
+					this.dialogFormVisible = true;
+					var requestUrl = API_URL + "video/detail";
+					var _params = Object.assign(BaseParams, {
+						versionType: 1
+					});
+					axios({
+							method: "get",
+							url: requestUrl,
+							params: _params,
+							headers: BaseHeaders,
+						})
+						.then((res) => {
+							const _list = res.data.data.list || [];
+							if (res.status === 200) {
+								this.visualList = _list;
+								this.gList1 = shuffle(_list);
+								this.gList2 = shuffle(_list);
+								this.gList3 = shuffle(_list);
+							} else {
+								this.$message({
+									message: res.msg,
+									type: "error",
+									showClose: true,
+									duration: 3000,
+								});
+							}
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				},
+				handleClose() {
+					this.dialogFormVisible = false;
+				},
+			},
+		});
+	</script>
+</body>
+
+</html>

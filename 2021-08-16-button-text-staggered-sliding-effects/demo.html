@@ -1,0 +1,76 @@
+<!--
+ * @Description: 
+ * @Author: Chuang Li
+ * @Date: 2021-08-16 09:43:06
+ * @LastEditTime: 2021-08-16 10:12:43
+ * @LastEditors: Chuang Li
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		html, body {
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.box {
+			width: 260px;
+			border:1px solid #ededed;
+			font-size: 40px;
+			margin: 100px auto;
+			text-align: center;
+			overflow: hidden;
+			cursor: pointer;
+		}
+		span {
+			position: relative;
+			display: inline-block;
+		}
+		/* true dom */
+		span:nth-of-type(2n + 1) {
+			color:steelblue;
+			transform: translateY(-100%);
+		}
+		span:nth-of-type(2n) {
+			color: seagreen;
+			transform: translateY(100%);
+		}
+		.box span{
+				transition: .9s;
+		}
+		.box:hover span{
+				transform: translateY(0);
+		}
+
+		/*false dom*/
+		span::before {
+			content:attr(data-text);
+			position: absolute;
+			left:0;
+			top:0;
+			color: red;
+		}
+		span:nth-of-type(2n+1)::before {
+			transform: translateY(100%);
+		}
+		span:nth-of-type(2n)::before {
+			transform: translateY(-100%);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+    <span data-text="B">B</span>
+    <span data-text="U">U</span>
+    <span data-text="T">T</span>
+    <span data-text="T">T</span>
+    <span data-text="O">O</span>
+    <span data-text="N">N</span>
+  </div>
+</body>
+</html>
